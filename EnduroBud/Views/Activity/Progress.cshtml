@@ -1,0 +1,32 @@
+@model List<EnduroBud.Models.Activity>
+
+<h1>
+    Your Progress
+</h1>
+
+@if(Model.Count<1)
+{
+    <h1>There are no activities</h1>
+}
+
+<div class="container">
+    <div class="row">
+    @foreach(var activity in Model){
+        <div>
+            <div class="col-xs-3">
+            <h3>@activity.Date</h3>
+            </div>
+
+            <div class="col-xs-3">
+                <h3>@activity.Type</h3>
+            </div>
+            <div class="col-xs-3">
+                <h3>@activity.Distance miles</h3>
+            </div>
+            <div class="col-xs-3">
+                <h3>@activity.Description</h3>
+            </div>
+        </div>
+    }
+    </div>
+    </div>
