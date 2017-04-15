@@ -52,6 +52,14 @@ namespace EnduroBud.Controllers
         }
 
 
+        public IActionResult RemoveActivity(long activityId)
+        {
+            var activity = _db.Activities.Find(activityId);
+            _db.Activities.Remove(activity);
+            _db.SaveChanges();
+            return Redirect("Progress");
+        }
+
         public IActionResult Error()
         {
             return View();

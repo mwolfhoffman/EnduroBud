@@ -1,32 +1,87 @@
+@addTagHelper "*, Microsoft.AspNetCore.Mvc.TagHelpers"
 @model List<EnduroBud.Models.Activity>
 
 <h1>
     Your Progress
 </h1>
 
-@if(Model.Count<1)
+@if (Model.Count < 1)
 {
     <h1>There are no activities</h1>
 }
 
 <div class="container">
     <div class="row">
-    @foreach(var activity in Model){
+
         <div>
             <div class="col-xs-3">
-            <h3>@activity.Date</h3>
+                <h2>Date</h2>
             </div>
 
             <div class="col-xs-3">
-                <h3>@activity.Type</h3>
+                <h2>Activity</h2>
             </div>
             <div class="col-xs-3">
-                <h3>@activity.Distance miles</h3>
+                <h2>Distance (miles)</h2>
             </div>
             <div class="col-xs-3">
-                <h3>@activity.Description</h3>
+                <h2>Description</h2>
             </div>
         </div>
-    }
+
     </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var activity in Model)
+        {
+            <div>
+                <div class="col-xs-3">
+                    <h3>@activity.Date</h3>
+                </div>
+
+                <div class="col-xs-3">
+                    <h3>@activity.Type</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>@activity.Distance miles</h3>
+                </div>
+                <div class="col-xs-3">
+                    <h3>
+                        @activity.Description
+                    <i class="fa fa-pencil" id="edit-activity" aria-hidden="true"></i>
+
+
+
+                        <a asp-controller="Activity" asp-action="RemoveActivity" asp-route-activityId="@activity.Id">
+                           <i class="fa fa-trash" id="delete-activity" aria-hidden="true"></i>
+                        </a>
+
+                </h3>
+
+            </div>
+        </div>
+        }
     </div>
+</div>
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-3">
+            <h2>Total: </h2>
+        </div>
+        <div class="col-xs-3 col-offset-xs-6">
+            @{
+                var totalDistance = 0.0;
+                foreach (var activity in Model)
+                {
+                    totalDistance += activity.Distance;
+                }
+                <h2>@totalDistance (miles)</h2>
+            }
+
+        </div>
+    </div>
+</div>
