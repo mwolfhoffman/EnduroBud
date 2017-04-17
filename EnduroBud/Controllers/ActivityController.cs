@@ -18,8 +18,6 @@ namespace EnduroBud.Controllers
             _db = db;
         }
 
-
-
         public IActionResult Index()
         {
             return View();
@@ -36,7 +34,6 @@ namespace EnduroBud.Controllers
             return View(activities);
         }
 
-
         [HttpPost]
         public IActionResult Create(Activity activity)
         {
@@ -44,13 +41,12 @@ namespace EnduroBud.Controllers
             {
                 _db.Activities.Add(activity);
                 _db.SaveChanges();
-                 return RedirectToAction("Progress");
+                return RedirectToAction("Progress");
 
 
             }
             return RedirectToAction("Index");
         }
-
 
         public IActionResult RemoveActivity(long activityId)
         {
@@ -58,6 +54,24 @@ namespace EnduroBud.Controllers
             _db.Activities.Remove(activity);
             _db.SaveChanges();
             return Redirect("Progress");
+        }
+
+        [HttpGet("/edit/{id}")]
+        public IActionResult EditActivity(long id)
+        {
+            var activity = _db.Activities.Find(id);
+
+            return View(activity);
+        }
+
+        [HttpPost("edit/{id}")]
+        public IActionResult Edit(long id, Activity act)
+        {
+
+            var activity = _db.Activities.Find(id);
+            _db.Entry(activity).CurrentValues.SetValues(act);
+            _db.SaveChanges();
+            return RedirectToAction("Progress");
         }
 
         public IActionResult Error()
