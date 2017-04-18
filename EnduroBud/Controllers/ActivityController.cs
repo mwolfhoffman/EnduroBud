@@ -64,6 +64,7 @@ namespace EnduroBud.Controllers
             return View(activity);
         }
 
+        //PUT request isn't working with Razor right now, will change this Post to Put later. 
         [HttpPost("edit/{id}")]
         public IActionResult Edit(long id, Activity act)
         {
