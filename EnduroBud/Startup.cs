@@ -36,6 +36,14 @@ namespace EnduroBud
                 var connectionString = Configuration.GetConnectionString("ActivityContext");
                 options.UseSqlServer(connectionString);
             });
+
+            services.AddDbContext<EventContext>(options =>
+            {
+                var connectionString = Configuration.GetConnectionString("EventContext");
+                options.UseSqlServer(connectionString);
+            });
+
+
             // Add framework services.
             services.AddMvc();
         }

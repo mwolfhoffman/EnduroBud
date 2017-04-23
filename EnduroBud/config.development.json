@@ -1,7 +1,9 @@
 ﻿
   {
     "ConnectionStrings": {
-      "ActivityContext": "Server=(localdb)\\mssqllocaldb;Database=EnduroBud;Trusted_Connection=True;"
+      "ActivityContext": "Server=(localdb)\\mssqllocaldb;Database=EnduroBud;Trusted_Connection=True;",
+      "EventContext": "Server=(localdb)\\mssqllocaldb;Database=EnduroBud;Trusted_Connection=True;"
+
     },
     "FeatureToggles": {
       "EnableDeveloperExceptions": true

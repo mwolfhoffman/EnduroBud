@@ -8,17 +8,10 @@ namespace EnduroBud.Models
 {
     public class Event
     {
-        public string Name;
-        public string Type;
-        public double Distance;
-
-        public DateTime Date;
-
-    /*    public DateTime ToDateTime(string Date)
-        {
-            DateTime dt = Convert.ToDateTime(Date);
-            return dt;
-        }
-        */
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public double Distance { get; set; }
+        public DateTime Date { get; set; }
     }
 }
