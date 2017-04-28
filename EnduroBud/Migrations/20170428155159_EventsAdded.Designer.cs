@@ -7,31 +7,32 @@ using EnduroBud;
 
 namespace EnduroBud.Migrations
 {
-    [DbContext(typeof(ActivityContext))]
-    partial class ActivityContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(EventContext))]
+    [Migration("20170428155159_EventsAdded")]
+    partial class EventsAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EnduroBud.Models.Activity", b =>
+            modelBuilder.Entity("EnduroBud.Models.Event", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Date");
-
-                    b.Property<string>("Description");
+                    b.Property<DateTime>("Date");
 
                     b.Property<double>("Distance");
+
+                    b.Property<string>("Name");
 
                     b.Property<string>("Type");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Activities");
+                    b.ToTable("Events");
                 });
         }
     }

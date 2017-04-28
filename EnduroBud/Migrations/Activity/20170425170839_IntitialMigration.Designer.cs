@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EnduroBud;
 
-namespace EnduroBud.Migrations
+namespace EnduroBud.Migrations.Activity
 {
     [DbContext(typeof(ActivityContext))]
-    [Migration("20170415034105_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20170425170839_IntitialMigration")]
+    partial class IntitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

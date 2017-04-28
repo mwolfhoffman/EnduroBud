@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace EnduroBud.Migrations
+namespace EnduroBud.Migrations.Activity
 {
-    public partial class InitialCreate : Migration
+    public partial class IntitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

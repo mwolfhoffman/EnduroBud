@@ -5,13 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EnduroBud;
 
-namespace EnduroBud.Migrations.Event
+namespace EnduroBud.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20170423170846_AddEvent")]
-    partial class AddEvent
+    partial class EventContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

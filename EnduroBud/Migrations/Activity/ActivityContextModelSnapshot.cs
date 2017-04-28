@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EnduroBud;
 
-namespace EnduroBud.Migrations.Event
+namespace EnduroBud.Migrations.Activity
 {
-    [DbContext(typeof(EventContext))]
-    partial class EventContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ActivityContext))]
+    partial class ActivityContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -16,22 +16,22 @@ namespace EnduroBud.Migrations.Event
                 .HasAnnotation("ProductVersion", "1.1.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EnduroBud.Models.Event", b =>
+            modelBuilder.Entity("EnduroBud.Models.Activity", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Date");
+                    b.Property<string>("Date");
+
+                    b.Property<string>("Description");
 
                     b.Property<double>("Distance");
-
-                    b.Property<string>("Name");
 
                     b.Property<string>("Type");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Events");
+                    b.ToTable("Activities");
                 });
         }
     }
